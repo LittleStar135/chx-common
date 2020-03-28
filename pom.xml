@@ -3,4 +3,15 @@
   <groupId>com.chx</groupId>
   <artifactId>chx-common</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <description>工具类</description>
+ 
+  	<dependencies>
+  		<dependency>
+  			<groupId>junit</groupId>
+  			<artifactId>junit</artifactId>
+  			<version>4.12</version>
+  		
+  		</dependency>
+  	</dependencies>
+
 </project>

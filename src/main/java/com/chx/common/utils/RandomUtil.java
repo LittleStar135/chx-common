@@ -1,40 +1,37 @@
 package com.chx.common.utils;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Random;
 
-/**
- * 
- * @ClassName: RandomUtils 
- * @Description: Ëæ»úÊı¹¤¾ßÀà
- * @author: MACHENIKE
- * @date: 2020Äê2ÔÂ27ÈÕ ÉÏÎç9:41:22
- */
 
 public class RandomUtil {
 
 	
-	//·½·¨1£º·µ»Ømin-maxÖ®¼äµÄËæ»úÕûÊı£¨°üº¬minºÍmaxÖµ£©£¬ÀıÈç·µ»Ø1-3Ö®¼äµÄËæ»úÊı£¬ÄÇÃ´·µ»Ø1»ò2»ò3¶¼ÊÇÕıÈ·µÄ£¬·µ»Ø4¾Í²»¶Ô¡£ (5·Ö)
+	//æ–¹æ³•1ï¼šè¿”å›min-maxä¹‹é—´çš„éšæœºæ•´æ•°ï¼ˆåŒ…å«minå’Œmaxå€¼ï¼‰ï¼Œä¾‹å¦‚è¿”å›1-3ä¹‹é—´çš„éšæœºæ•°ï¼Œé‚£ä¹ˆè¿”å›1æˆ–2æˆ–3éƒ½æ˜¯æ­£ç¡®çš„ï¼Œè¿”å›4å°±ä¸å¯¹ã€‚ (5åˆ†)
 	public static int random(int min, int max){
 		
 		Random r = new Random();
-		int i = r.nextInt(max-min+1)+min;  //nextInt(3)  ·µ»Ø0 1 2 £¨²»°üº¬3£©  
+		int i = r.nextInt(max-min+1)+min;  // nextInt(3) è¿”å›çš„0 1 2
 
 		return i;
 	
 	}
-	//·½·¨2£ºÔÚ×îĞ¡ÖµminÓë×î´óÖµmaxÖ®¼ä½ØÈ¡subs¸ö²»ÖØ¸´µÄËæ»úÊı¡£ÀıÈçÔÚ1-10Ö®¼äÈ¡3¸ö²»ÖØ¸´µÄËæ»úÊı£¬ÄÇÃ´[2,6,9]ÊÇ¶ÔµÄ£¬[3,5,5]Ôò²»¶Ô£¬ÒòÎª5ÖØ¸´ÁË¡£Ó¦ÓÃ³¡¾°£ºÔÚ100ÆªÎÄÕÂÖĞËæ»úÈ¡10ÆªÎÄÕÂ£¬ÔÂ¿¼¿ÉÄÜ»áÊ¹ÓÃµ½¡£ (8·Ö)
+	//æ–¹æ³•2ï¼šåœ¨æœ€å°å€¼minä¸æœ€å¤§å€¼maxä¹‹é—´æˆªå–subsä¸ªä¸é‡å¤çš„éšæœºæ•°ã€‚ä¾‹å¦‚åœ¨1-10ä¹‹é—´å–3ä¸ªä¸é‡å¤çš„éšæœºæ•°ï¼Œé‚£ä¹ˆ[2,6,9]æ˜¯å¯¹çš„ï¼Œ[3,5,5]åˆ™ä¸å¯¹ï¼Œå› ä¸º5é‡å¤äº†ã€‚
+	//åº”ç”¨åœºæ™¯ï¼šåœ¨100ç¯‡æ–‡ç« ä¸­éšæœºå–10ç¯‡æ–‡ç« ï¼Œæœˆè€ƒå¯èƒ½ä¼šä½¿ç”¨åˆ°ã€‚ (8åˆ†)
 	public static int[] subRandom (int min, int max, int subs){
-		//ÉùÃ÷Êı×é   ÓÃÀ´´æ·Å·µ»ØµÄËæ»úÊı
+		//å£°æ˜æ•°ç»„,ç”¨æ¥å­˜æ”¾è¿”å›çš„éšæœºæ•°
 		int [] x=new int[subs];
-		
+		//ç”¨æ¥è¿‡æ»¤é‡å¤çš„æ•°æ®
 		HashSet<Integer> set = new HashSet<Integer>();
 		
 		while(set.size()!=subs) {
 			int i = random(min, max);
 			set.add(i);
 		}
-		
+		//éå†set æŠŠå€¼æ”¾å…¥æ•°ç»„
 		int k=0;
 		for (Integer i : set) {
 			x[k]=i;
@@ -44,7 +41,7 @@ public class RandomUtil {
 		return x;
 	
 	}
-	//·½·¨3£º·µ»Ø1¸ö1-9,a-ZÖ®¼äµÄËæ»ú×Ö·û¡£ (8·Ö)
+	//æ–¹æ³•3ï¼šè¿”å›1ä¸ª1-9,a-Zä¹‹é—´çš„éšæœºå­—ç¬¦ã€‚ (8åˆ†)
 	public static char randomCharacter (){
 		
 		
@@ -54,7 +51,7 @@ public class RandomUtil {
 		return charAt;
 	
 	}
-	//·½·¨4£º·µ»Ø²ÎÊılength¸ö×Ö·û´®(5·Ö)£¬·½·¨ÄÚ²¿Òªµ÷ÓÃrandomCharacter()·½·¨ (4·Ö)
+	//æ–¹æ³•4ï¼šè¿”å›å‚æ•°lengthä¸ªå­—ç¬¦ä¸²(5åˆ†)ï¼Œæ–¹æ³•å†…éƒ¨è¦è°ƒç”¨randomCharacter()æ–¹æ³• (4åˆ†)
 	public static String randomString(int length){
 		
 		String str="";
@@ -67,5 +64,80 @@ public class RandomUtil {
 
 	}
 
+	/** 
+     * è¿”å›æ‰‹æœºå·ç  
+     */  
+	public static String randomPhone(){
+		   
+	       
+        String number = "13";//å®šä¹‰ç”µè¯å·ç ä»¥139å¼€å¤´
+        Random random = new Random();//å®šä¹‰randomï¼Œäº§ç”Ÿéšæœºæ•°
+        for (int j = 0; j < 9; j++) {
+            //ç”Ÿæˆ0~9 éšæœºæ•°
+            number += random.nextInt(9);
+        }
+    
+        return number;
+	
+
+	}
+	
+	//éšæœºè¿”å›æ€§åˆ«
+	public static String randomSex(){
+		String[] str= {"å¥³","ç”·"};
+		//å§“æ° ä»æ•°ç»„éšæœºè·å–ä¸€ä¸ª
+		String sex = str[RandomUtil.random(0, str.length-1)];
+		
+		return sex;
+	}
+	
+	//éšæœºç”Ÿæˆä¸€ä¸ªé•¿åº¦èŒƒå›´å†…çš„email
+	public static String randomEmail(){
+		
+		int num=random(3, 20);
+		
+		String email="";
+		
+		for (int i = 0; i < num; i++) {
+			email+= randomCharacter();
+		}
+		String[] str= {"@qq.com","@163.com","@sian.com","@gmail.com","@sohu.com","@hotmail.com"};
+		//å§“æ° ä»æ•°ç»„éšæœºè·å–ä¸€ä¸ª
+		String email2 = str[RandomUtil.random(0, str.length-1)];
+		
+		return email+email2;
+
+	}
+	
+
+	 public static String randomDateBetweenMinAndMax(){
+	        Calendar calendar = Calendar.getInstance();
+	        //æ³¨æ„æœˆä»½è¦å‡å»1
+	        calendar.set(1950,01,01);
+	        calendar.getTime().getTime();
+	        //æ ¹æ®éœ€æ±‚ï¼Œè¿™é‡Œè¦å°†æ—¶åˆ†ç§’è®¾ç½®ä¸º0
+	        calendar.set(Calendar.HOUR_OF_DAY, 0);
+	        calendar.set(Calendar.MINUTE, 0);
+	        calendar.set(Calendar.SECOND,0);
+	        long min = calendar.getTime().getTime();;
+	        calendar.set(2002,01,01);
+	        calendar.set(Calendar.HOUR_OF_DAY,0);
+	        calendar.set(Calendar.MINUTE,0);
+	        calendar.set(Calendar.SECOND,0);
+	        calendar.getTime().getTime();
+	        long max = calendar.getTime().getTime();
+	        //å¾—åˆ°å¤§äºç­‰äºminå°äºmaxçš„doubleå€¼
+	        double randomDate = Math.random()*(max-min)+min;
+	        //å°†doubleå€¼èˆå…¥ä¸ºæ•´æ•°ï¼Œè½¬åŒ–æˆlongç±»å‹
+	        calendar.setTimeInMillis(Math.round(randomDate));
+	        
+	        Date date = calendar.getTime();
+	        
+	        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	        String birthday = df.format(date);
+
+	        return birthday;
+
+	 }
 	
 }

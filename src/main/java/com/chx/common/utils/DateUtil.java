@@ -4,20 +4,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-
-/**
- * 
- * @ClassName: DateUtil 
- * @Description: TODO
- * @author: MACHENIKE
- * @date: 2020Äê2ÔÂ28ÈÕ ÉÏÎç8:59:34
- */
-
 public class DateUtil {
 	/**
 	 * 
 	 * @Title: getAgeByBirthday 
-	 * @Description: ¸ù¾İÉúÈÕ¼ÆËãÄêÁä
+	 * @Description: æ ¹æ®ç”Ÿæ—¥è·å–å¹´é¾„
 	 * @param date
 	 * @return
 	 * @return: int
@@ -28,10 +19,10 @@ public class DateUtil {
 		int age=0;
 
 			Calendar now = Calendar.getInstance();
-			now.setTime(new Date());//µ±Ç°Ê±¼ä
+			now.setTime(new Date());
 			Calendar birth = Calendar.getInstance();
 			birth.setTime(birthday);
-			if (birth.after(now)) {//Èç¹û´«ÈëµÄÊ±¼ä£¬ÔÚµ±Ç°µÄÊ±¼äµÄºóÃæ ·µ»Ø0Ëê
+			if (birth.after(now)) {
 				age=0;
 			}else {
 				age=now.get(Calendar.YEAR) - birth.get(Calendar.YEAR);
@@ -43,80 +34,75 @@ public class DateUtil {
 			return age;
 	}
 	
-	
 	/**
 	 * 
 	 * @Title: getEndMonth 
-	 * @Description: ·µ»ØÒ»¸öÔÂµÄÔÂÄ©  ÄêÔÂÈÕÊ±·ÖÃë
+	 * @Description: è¿”å›æŒ‡å®šæœˆä»½çš„æœˆæœ«æ—¥æœŸæ¯”å¦‚ 2020-02-28 , è¿”å› 2020-02-29 23:59:59
 	 * @param date
 	 * @return
 	 * @return: Date
 	 */
-	
 	public static Date getEndMonth(Date date) {
-		//»ñÈ¡Ò»¸öÈÕÀúÀà
-		Calendar c = Calendar.getInstance();//Ä¬ÈÏ»ñÈ¡µ±Ç°Ê±¼äÈÕÀúÀà
-		//ÓÃ´«ÈëµÄÈÕÆÚ³õÊ¼»¯ÈÕÀúÀà
+		//è·å–æ—¥å†ç±»
+		Calendar c = Calendar.getInstance();
+		//ç”¨ä¼ å…¥çš„æ—¥æœŸåˆå§‹åŒ–æ—¥å†ç±»
 		c.setTime(date);
-		//ÈÃÔÂ·İ+1ÔÙ±ä³ÉÔÂ³õ-1Ãë
+		//æ•´ä½“è®©æœˆä»½+1ï¼Œ å†å˜æˆæœˆåˆ -1 ç§’
 		c.add(Calendar.MONTH, 1);
-		Date initMonth = getInitMonth(c.getTime());//ÈÃÔÂ·İ+1
-		c.setTime(initMonth);//ÔÙ±ä³ÉÔÂ³õ
-		c.add(Calendar.SECOND, -1);//ÔÙ¼õÒ»Ãë
+		Date initMonth = getInitMonth(c.getTime());//è®©æœˆä»½+1
+		c.setTime(initMonth);//å†å˜æˆæœˆåˆ
 		
+		c.add(Calendar.SECOND, -1);//å‡å»1ç§’
 		return c.getTime();
+		
 	}
-	
 	
 	/**
 	 * 
 	 * @Title: getInitMonth 
-	 * @Description: ·µ»ØÖ¸¶¨ÈÕÆÚµÄÔÂ³õ    ±ÈÈç2020-02-28 ·µ»Ø2020-02-01 00:00:00
+	 * @Description: è¿”å›æŒ‡å®šæ—¥æœŸçš„æœˆåˆï¼Œæ¯”å¦‚ 2020-02-28 , è¿”å› 2020-02-01 00:00:00
 	 * @param date
 	 * @return
 	 * @return: Date
 	 */
-	
-	public static Date getInitMonth(Date date) {
-		//»ñÈ¡Ò»¸öÈÕÀúÀà
-		Calendar c = Calendar.getInstance();//Ä¬ÈÏ»ñÈ¡µ±Ç°Ê±¼äÈÕÀúÀà
-		//ÓÃ´«ÈëµÄÈÕÆÚ³õÊ¼»¯ÈÕÀúÀà
+	public  static Date  getInitMonth(Date date) {
+	//è·å–ä¸€ä¸ªæ—¥å†ç±»
+		Calendar c = Calendar.getInstance();//è·å–å½“å‰ç³»ç»Ÿæ—¶é—´çš„æ—¥å†ç±»
+		//ç”¨ä¼ å…¥çš„æ—¥æœŸå†åˆå§‹åŒ–æ—¥å†ç±»
 		c.setTime(date);
-		//µ÷ÓÃÈÕÀúÀàµÄ·½·¨
-		c.set(Calendar.DAY_OF_MONTH, 1);//ÈÃÈÕÆÚÎªµ±ÔÂµÄµÚÒ»Ìì
-		c.set(Calendar.HOUR_OF_DAY, 0);
-		c.set(Calendar.MINUTE, 0);
-		c.set(Calendar.SECOND, 0);
+		//è°ƒç”¨æ—¥å†ç±»çš„ç›¸å…³æ–¹æ³•
+		c.set(Calendar.DAY_OF_MONTH, 1);//è®©æ—¥æœŸä¸ºå½“æœˆçš„ç¬¬ä¸€å¤©
+		c.set(Calendar.HOUR_OF_DAY, 0);//å°æ—¶
+		c.set(Calendar.MINUTE, 0);//åˆ†é’Ÿ
+		c.set(Calendar.SECOND, 0);//ç§’
 		
 		return c.getTime();
-		
 		
 	}
 	
 	
 	
+	
+
 	/**
 	 * 
 	 * @Title: randomDate 
-	 * @Description: ÈÕÆÚ¹¤¾ßÀà
-	 * @param min  ×îĞ¡
-	 * @param max  ×î´ó
-	 * @return
-	 * @return: Data
+	 * @Description: TODO
+	 * @param min æœ€å°æ—¥æœŸ
+	 * @param max æœ€å¤§æ—¥æœŸ
+	 * @return åœ¨ min å’Œmaxä¹‹é—´çš„éšæœºæ—¥æœŸ
+	 * @return: Date
 	 */
-
-	public static Date randomDate(Date min,Date max) {
-		//»ñÈ¡×îĞ¡ÈÕÆÚµÄºÁÃëÊı£¬´Ó1970Äêµ½minµÄºÁÃëÊı
-		long t1=min.getTime();
-		long t2=min.getTime();
+	public  static Date randomDate(Date min,Date max) {
+		// è·å–æœ€å°æ—¥æœŸçš„æ¯«ç§’æ•°.ä»1970åˆ°min çš„æ¯«ç§’æ•°
+		long t1 = min.getTime();
+		long t2 = max.getTime();
 		
-		if (t1>t2) {
-			return null;
-		}
-		double d = Math.random();  //·µ»Ø0-1Ö®¼äµÄÖµ
-		long x=(long) (d *(t2 - t1 + 1)+t1);
-
-		return  new Date(x);
+		if(t1 > t2 ) return null;
+		
+		double d = Math.random();  //è¿”å›0-1 ä¹‹é—´çš„éšæœºå€¼
+	    long x = (long) (d *(t2 - t1 +1 )+t1);
+		return new Date(x);
 		
 	}
 	

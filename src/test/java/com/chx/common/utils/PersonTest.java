@@ -15,13 +15,13 @@ public class PersonTest {
 	public void getMessage() throws Exception {
 		
 		Person p = new Person();
-		//ĞÕÃûÊôĞÔÖµµ÷ÓÃStringUtil.generateChineseName()´´½¨
+		// å§“åå±æ€§å€¼è°ƒç”¨StringUtil.generateChineseName()åˆ›å»ºï¼ˆ4åˆ†ï¼‰
 		p.setName(StringUtil.generateChineseName());
-		//ÄêÁäÊôĞÔÖµµ÷ÓÃRandomUtil.random()´´½¨£¬±ØĞëÔÚ1-120ËêÖ®¼ä
+		// å¹´é¾„å±æ€§å€¼è°ƒç”¨RandomUtil.random()åˆ›å»ºï¼Œå¿…é¡»åœ¨1-120å²ä¹‹é—´ï¼ˆ4åˆ†ï¼‰
 		p.setAge(RandomUtil.random(1, 120));
-		//½éÉÜÊôĞÔÖµµ÷ÓÃStringUtil.randomChineseString()´´½¨£¬×ÖÊıÎª140¸öËæ»úºº×Ö
+		// ä»‹ç»å±æ€§å€¼è°ƒç”¨StringUtil.randomChineseString()åˆ›å»ºï¼Œå­—æ•°ä¸º140ä¸ªéšæœºæ±‰å­—ï¼ˆ4åˆ†ï¼‰
 		p.setAbout(StringUtil.randomChineseString(140));
-		//×¢²áÈÕÆÚÊôĞÔÖµÄ£Äâ2010Äê1ÔÂ1ÈÕÖÁ½ñÈÎÒâËæ»úÊ±¼ä£¨4·Ö£©¡£
+		// æ³¨å†Œæ—¥æœŸå±æ€§å€¼æ¨¡æ‹Ÿ2010å¹´1æœˆ1æ—¥è‡³ä»Šä»»æ„éšæœºæ—¶é—´ï¼ˆ4åˆ†ï¼‰ã€‚
 		Calendar c = Calendar.getInstance();
 		c.set(2010, 0, 1);
 		p.setCreated(DateUtil.randomDate(c.getTime(),new Date()));

@@ -2,16 +2,6 @@ package com.chx.common.utils;
 
 import java.util.Date;
 
-
-
-/**
- * 
- * @ClassName: Person 
- * @Description: TODO
- * @author: MACHENIKE
- * @date: 2020年2月28日 上午8:48:58
- */
-
 public class Person {
 
 	private String name;

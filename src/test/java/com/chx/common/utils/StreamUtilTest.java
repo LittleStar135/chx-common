@@ -9,14 +9,14 @@ import org.junit.Test;
 
 public class StreamUtilTest {
 
-	@Test
-	public void testRead() throws Exception {
-		
-		List<String> list = StreamUtil.read(new File("C:\\Users\\MACHENIKE\\Desktop\\新建文本文档.txt"));
-		
-		for (String string : list) {
-			System.out.println(string);
-		}
-	}
+//	@Test
+//	public void testRead() throws Exception {
+//		
+//		List<String> list = StreamUtil.read(new File("C:\\Users\\MACHENIKE\\Desktop\\data.txt"));
+//		
+//		for (String string : list) {
+//			System.out.println(string);
+//		}
+//	}
 
 }

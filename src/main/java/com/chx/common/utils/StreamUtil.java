@@ -3,54 +3,42 @@ package com.chx.common.utils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 
- * @ClassName: StreamUtil 
- * @Description: Á÷´¦Àí
- * @author: MACHENIKE
- * @date: 2020Äê3ÔÂ1ÈÕ ÏÂÎç1:31:01
- */
+
 public class StreamUtil {
 
 	
-	//¶ÁÈ¡InputStream·ÅÈë¼¯ºÏÖĞ
-	public static List<String> read(InputStream inputStream) throws Exception {
-		//ÉùÃ÷Ò»¸ö¼¯ºÏ
-		 List<String> list = new ArrayList<String>();
-		 
-		 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-		 String line="";
-		 while ((line=reader.readLine())!=null) {
+	//è¯»å–InputStream æ”¾å…¥é›†åˆ
+    public static List<String> read(InputStream InputStream) throws IOException{
+    	
+    	//å£°æ˜é›†åˆ
+    	List<String> list = new ArrayList<String>();
+    	BufferedReader reader = new BufferedReader(new InputStreamReader(InputStream));
+    	String line="";
+		while((line=reader.readLine())!=null) {
 			list.add(line);
 		}
- 
 		return list;
-		
 	}
-	
-	//¸ù¾İÎÄ¼şµÄµØÖ·¶ÁÈ¡ÎÄ¼ş·ÅÈë¼¯ºÏÖĞ
-	public static List<String> read(String filePath) throws Exception {
-		//ÉùÃ÷Ò»¸ö¼¯ºÏ
-		FileInputStream inputStream = new FileInputStream(filePath);
-	
+	//æ ¹æ®æ–‡ä»¶çš„åœ°å€è¯»å–æ–‡ä»¶æ”¾å…¥ é›†åˆä¸­
+	public static List<String> read(String filePath) throws IOException{
+		//å£°æ˜é›†åˆ
+         FileInputStream inputStream = new FileInputStream(filePath);
 		return read(inputStream);
 		
 	}
 	
-	//¶ÁÈ¡ÎÄ¼şÄÚÈİ·ÅÈë¼¯ºÏ
-	public static List<String> read(File file) throws Exception {
-
+	//è¯»å–æ–‡ä»¶å†…å®¹æ”¾å…¥é›†åˆ
+	
+	public static List<String> read(File file) throws IOException{
 		FileInputStream inputStream = new FileInputStream(file);
-		return read(inputStream);
+	    return read(inputStream);
+		
 	}
-	
-	
-	
-	
 	
 }
